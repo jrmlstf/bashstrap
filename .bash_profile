@@ -7,9 +7,9 @@ alias s='open -a "Sublime Text"'
 # Color LS
 colorflag="-G"
 alias ls="command ls ${colorflag}"
-alias l="ls -lF ${colorflag}" # all files, in long format
+alias ll="ls -lF ${colorflag}" # all files, in long format
 alias la="ls -laF ${colorflag}" # all files inc dotfiles, in long format
-alias lsd='ls -lF ${colorflag} | grep "^d"' # only directories
+alias ld='ls -lF ${colorflag} | grep "^d"' # only directories
 
 # Quicker navigation
 alias ..="cd .."
@@ -17,9 +17,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-# Shortcuts to my Code folder in my home directory
-alias code="cd ~/Code"
-alias sites="cd ~/Code/sites"
+# Shortcuts to my Sites folder in my home directory
+alias sites="cd ~/Sites"
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
@@ -107,3 +106,21 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # init z! (https://github.com/rupa/z)
 . ~/z.sh
+
+# Create a directory and navigate to it
+function mcd() { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+# Add a default editor
+export EDITOR=/usr/bin/vim
+
+# Check open ports
+alias openports="lsof -Pni4 | grep LISTEN"
+
+# Live cat a file content. Usefull for logs 
+function live() { tail -f $1; }
+
+# Simply download a file with curl in the current directory
+function dl() { curl -O#L $1; }
+
+# Get the ip address of the desired network interface. Default to en0.
+function ip() { if [ -z "$1" ]; then ipconfig getifaddr en0; else ipconfig getifaddr $1; fi }

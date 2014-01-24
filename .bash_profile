@@ -107,14 +107,14 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 # init z! (https://github.com/rupa/z)
 . ~/z.sh
 
-# Create a directory and navigate to it
-function mcd() { mkdir -p "$@" && eval cd "\"\$$#\""; }
-
 # Add a default editor
 export EDITOR=/usr/bin/vim
 
 # Check open ports
 alias openports="lsof -Pni4 | grep LISTEN"
+
+# Create a directory and navigate to it
+function mcd() { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 # Live cat a file content. Usefull for logs 
 function live() { tail -f $1; }

@@ -120,9 +120,8 @@ alias mkdir="mkdir -pv"
 alias h="history"
 alias c="clear"
 
-# Mysql aliases
-alias mysql="/usr/local/mysql/bin/mysql"
-alias mysqladmin="/usr/local/mysql/bin/mysqladmin"
+# Add MySql cmds to PATH
+PATH=$PATH:/usr/local/mysql/bin/
 
 # Create a directory and navigate to it
 function mkcd() { mkdir -p "$@" && eval cd "\"\$$#\""; }

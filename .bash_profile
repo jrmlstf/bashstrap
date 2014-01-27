@@ -113,8 +113,15 @@ export EDITOR=/usr/bin/vim
 # Check open ports
 alias openports="lsof -Pni4 | grep LISTEN"
 
+# Automatically create parent directories
+alias mkdir="mkdir -pv"
+
+# Shorticuts for history and clear
+alias h="history"
+alias c="clear"
+
 # Create a directory and navigate to it
-function mcd() { mkdir -p "$@" && eval cd "\"\$$#\""; }
+function mkcd() { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 # Live cat a file content. Usefull for logs 
 function live() { tail -f $1; }

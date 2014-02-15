@@ -120,6 +120,9 @@ alias mkdir="mkdir -pv"
 alias h="history"
 alias c="clear"
 
+# Get ip details from info.io
+alias ipi="curl ipinfo.io"
+
 # Add MySql cmds to PATH
 PATH=$PATH:/usr/local/mysql/bin/
 
